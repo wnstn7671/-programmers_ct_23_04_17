@@ -13,12 +13,6 @@ public class Main {
         );
         // [1]
 
-//        System.out.println(
-//                Arrays.toString(
-//                        new Solution().solution(new int[]{1, 3, 2, 4, 2})
-//                )
-//        );
-        // [1, 2, 3]
     }
 }
 
@@ -32,7 +26,7 @@ class Solution {
 
         // 각각의 방법으로 했을 때의 점수를 얻은 후 그것이 최고점수이면 배열에 수포자 번호 담는다.
         return IntStream.rangeClosed(1, 3)
-                .filter(patterNo -> maxPoint == scoreOf(answers, patterNo))
+                .filter(patternNo -> maxPoint == scoreOf(answers, patternNo))
                 .toArray();
     }
 
@@ -48,13 +42,6 @@ class Solution {
         return scoreOf(answers, new int[]{3, 3, 1, 1, 2, 2, 4, 4, 5, 5});
     }
 
-    private int scoreOf(int[] answers, int patternNo) {
-        if (patternNo == 1) return scoreOf1(answers);
-        if (patternNo == 2) return scoreOf2(answers);
-
-        return scoreOf3(answers);
-    }
-
     private int scoreOf(int[] answers, int[] pattern) {
         int score = 0;
 
@@ -65,5 +52,12 @@ class Solution {
         }
 
         return score;
+    }
+    private int scoreOf(int[] answers, int patternNo) {
+
+        if (patternNo == 1) return scoreOf1(answers);
+        if (patternNo == 2) return scoreOf2(answers);
+
+        return scoreOf3(answers);
     }
 }
